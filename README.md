@@ -3,6 +3,7 @@
 ### Project: Process/Thread Tree Introspection System Call
 
 Extended Linux 6.14 with a custom system call that exports structured process and thread information for a requested subtree of the process hierarchy. The kernel implementation traverses the process tree in breadth-first order, groups threads by owning process, and emits a stable ordering that user space can reconstruct into a correct parent/child hierarchy. The interface is exposed via a clean user-kernel ABI (UAPI struct) and includes careful validation of pointers, sizes, and PIDs before copying results back to user space.
+
 Built a companion user-space tool to invoke the syscall and present the snapshot in a human-readable form, with attention to correctness under concurrent process creation/termination and robust error handling.
 
 ### Project: Kernel Process State Tracing (Ring Buffer + Control API)
@@ -28,3 +29,7 @@ Hardened the implementation with strict argument validation, permission checks, 
 Implemented a filesystem as a Linux kernel module and integrated it with the VFS using modern interfaces. The module registers a filesystem type, mounts/unmounts safely, initializes superblock/inode state correctly, and supports core operations needed for directory enumeration and file access through standard user tools. The implementation targets modern 64-bit kernels and avoids deprecated interfaces (e.g., buffer heads), instead leveraging contemporary patterns such as filesystem contexts and iomap-based integration.
 
 Validated functionality end-to-end using disk images attached via loop devices, ensuring the module loads cleanly, mounts reliably, and behaves correctly under standard workflows (mount, ls, stat, etc.).
+
+---
+
+*This code was developed for a university course and can’t be made public due to academic integrity/policy constraints. I can share access privately upon request.*
