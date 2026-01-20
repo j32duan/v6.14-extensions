@@ -1,5 +1,11 @@
 # Kernel Systems Projects (Linux 6.14)
 
+**Highlights**
+- Extended Linux 6.14 with kernel/user interfaces (syscalls), synchronized tracing, a custom scheduling policy, and memory/VM introspection.
+- Built measurement-driven scheduler evaluation using eBPF tracing (run-queue latency, completion time).
+- Implemented a userspace-visible memory-mapping inspector with live updates on faults and mapping changes.
+- Implemented a Linux filesystem as a kernel module via modern VFS interfaces (filesystem contexts, iomaps).
+
 ### Project: Process/Thread Tree Introspection System Call
 
 Extended Linux 6.14 with a custom system call that exports structured process and thread information for a requested subtree of the process hierarchy. The kernel implementation traverses the process tree in breadth-first order, groups threads by owning process, and emits a stable ordering that user space can reconstruct into a correct parent/child hierarchy. The interface is exposed via a clean user-kernel ABI (UAPI struct) and includes careful validation of pointers, sizes, and PIDs before copying results back to user space.
@@ -32,4 +38,4 @@ Validated functionality end-to-end using disk images attached via loop devices, 
 
 ---
 
-*This code was developed for a university course and can’t be made public due to academic integrity/policy constraints. I can share access privately upon request.*
+_This repository contains project descriptions only. The full implementation was developed for a university course and can’t be posted publicly due to academic integrity/policy constraints; I can share code privately upon request._
